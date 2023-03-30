@@ -128,8 +128,6 @@ class SMNTCS_Themes_List_Table extends WP_List_Table {
 
 		foreach ( $installed_themes as $stylesheet => $theme ) {
 			$themes_data[] = array(
-				// 'name'        => sprintf( '<a href="%s">%s</a>', $theme->get( 'ThemeURI' ), $theme->get( 'Name' ) ),
-				// 'author'      => sprintf( '<a href="%s">%s</a>', $theme->get( 'AuthorURI' ), $theme->get( 'Author' ) ),
 				'name'        => $theme->get( 'Name' ),
 				'author'      => $theme->get( 'Author' ),
 				'version'     => $theme->get( 'Version' ) ? $theme->get( 'Version' ) : __( 'n/a', 'smntcs-theme-list-view' ),
