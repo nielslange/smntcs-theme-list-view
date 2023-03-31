@@ -1,4 +1,4 @@
-# SMNTCS Nord Admin Theme
+# SMNTCS Theme List View
 
 ![Support Level](https://img.shields.io/badge/support-active-green.svg)
 ![Build Status](https://github.com/nielslange/smntcs-theme-list-view/actions/workflows/test.yml/badge.svg)
