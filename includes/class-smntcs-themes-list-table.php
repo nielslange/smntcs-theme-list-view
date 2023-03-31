@@ -108,11 +108,19 @@ class SMNTCS_Themes_List_Table extends WP_List_Table {
 			'switch-theme_' . $item['stylesheet']
 		);
 
-		if ( $item['name'] === $current_theme->get( 'Name' ) ) {
-			return sprintf( '<button data-url="%s" class="button activate-theme" disabled>Active</button>', esc_url( $activate_url ) );
+		if ( 0 === strpos( $item['name'], $current_theme->get( 'Name' ) ) ) {
+			return sprintf(
+				'<button data-url="%s" class="button activate-theme" disabled>%s</button>',
+				esc_url( $activate_url ),
+				esc_html__( 'Active', 'smntcs-theme-list-view' )
+			);
 		}
 
-		return sprintf( '<button data-url="%s" class="button activate-theme">%s</button>', esc_url( $activate_url ), esc_html__( 'Activate', 'smntcs-theme-list-view' ) );
+		return sprintf(
+			'<button data-url="%s" class="button activate-theme">%s</button>',
+			esc_url( $activate_url ),
+			esc_html__( 'Activate', 'smntcs-theme-list-view' )
+		);
 	}
 
 	/**
