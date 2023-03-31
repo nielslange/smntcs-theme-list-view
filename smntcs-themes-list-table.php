@@ -19,8 +19,11 @@
 defined( 'ABSPATH' ) || exit;
 
 // Define plugin constants.
-define( 'SMNTCS_THEME_LIST_VIEW_FILE', __FILE__ );
+if ( ! defined( 'SMNTCS_THEME_LIST_VIEW_FILE' ) ) {
+	define( 'SMNTCS_THEME_LIST_VIEW_FILE', __FILE__ );
+}
 
+// Initialize the plugin.
 if ( file_exists( plugin_dir_path( __FILE__ ) . '/includes/class-smntcs-themes-list-view.php' ) ) {
 	require_once plugin_dir_path( __FILE__ ) . '/includes/class-smntcs-themes-list-view.php';
 	( new SMNTCS_Themes_List_View() );

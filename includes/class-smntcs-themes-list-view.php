@@ -91,7 +91,7 @@ class SMNTCS_Themes_List_View {
 			return;
 		}
 
-		wp_enqueue_script( 'smntcs-theme-list-view-js', plugin_dir_url( __FILE__ ) . '../js/theme-activation.js', array( 'jquery' ), '1.0.0', true );
+		wp_enqueue_script( 'smntcs-theme-list-view-js', plugin_dir_url( SMNTCS_THEME_LIST_VIEW_FILE ) . 'assets/js/theme-activation.js', array( 'jquery' ), '1.0.0', true );
 		wp_localize_script( 'smntcs-theme-list-view-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 	}
 
@@ -191,7 +191,15 @@ class SMNTCS_Themes_List_View {
 			.wp-list-table .column-author {
 				width: auto;
 			}
-		';
+
+			.column-name img,
+			.column-author img {
+				height: 12px;
+				width: 12px;
+				float: none;
+				padding-left: 3px;
+			}
+			';
 
 		printf( '<style>%s</style>', esc_html( $css_styles ) );
 	}

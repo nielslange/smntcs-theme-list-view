@@ -125,11 +125,24 @@ class SMNTCS_Themes_List_Table extends WP_List_Table {
 
 		$installed_themes = wp_get_themes();
 		$themes_data      = array();
+		$icons_url        = plugins_url( '/', SMNTCS_THEME_LIST_VIEW_FILE ) . 'assets/icons/';
 
 		foreach ( $installed_themes as $stylesheet => $theme ) {
 			$themes_data[] = array(
-				'name'        => $theme->get( 'Name' ),
-				'author'      => $theme->get( 'Author' ),
+				'name'        => sprintf(
+					'%1$s <a href="%2$s"><img src="%3$s" alt="%4$s" title="%4$s"></a>',
+					$theme->get( 'Name' ),
+					$theme->get( 'ThemeURI' ),
+					$icons_url . 'external-link-alt-solid.svg',
+					sprintf( _( 'Open %s theme' ), $theme->get( 'Name' ) )
+				),
+				'author'      => sprintf(
+					'%1$s <a href="%2$s"><img src="%3$s" alt="%4$s" title="%4$s"></a>',
+					$theme->get( 'Author' ),
+					$theme->get( 'AuthorURI' ),
+					$icons_url . 'external-link-alt-solid.svg',
+					sprintf( _( 'Open website of %s' ), $theme->get( 'Author' ) )
+				),
 				'version'     => $theme->get( 'Version' ) ? $theme->get( 'Version' ) : __( 'n/a', 'smntcs-theme-list-view' ),
 				'requiresWP'  => $theme->get( 'RequiresWP' ) ? $theme->get( 'RequiresWP' ) : __( 'n/a', 'smntcs-theme-list-view' ),
 				'requiresPHP' => $theme->get( 'RequiresPHP' ) ? $theme->get( 'RequiresPHP' ) : __( 'n/a', 'smntcs-theme-list-view' ),
