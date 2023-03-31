@@ -17,6 +17,10 @@ Adds a list view for installed themes in the WordPress admin area.
 2. Activate the plugin through the `Plugins` menu in WordPress.
 3. Go to `Appearance → List view` to access the themes list view.
 
+## Screenshot
+
+![Screen Shot 2023-03-31 at 14 30 19](https://user-images.githubusercontent.com/3323310/229054612-08097bee-11dd-4d2b-ab48-d9bbeec75005.png)
+
 ## Plugin page
 
 You can find the plugin on https://wordpress.org/plugins/smntcs-theme-list-view/.
