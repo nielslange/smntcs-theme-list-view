@@ -133,7 +133,7 @@ class SMNTCS_Themes_List_Table extends WP_List_Table {
 
 		$installed_themes = wp_get_themes();
 		$themes_data      = array();
-		$icons_url        = plugins_url( '/', SMNTCS_THEME_LIST_VIEW_FILE ) . 'assets/icons/';
+		$images_url       = plugins_url( '/', SMNTCS_THEME_LIST_VIEW_FILE ) . 'assets/images/';
 
 		foreach ( $installed_themes as $stylesheet => $theme ) {
 			$themes_data[] = array(
@@ -141,7 +141,7 @@ class SMNTCS_Themes_List_Table extends WP_List_Table {
 					'%1$s <a href="%2$s"><img src="%3$s" alt="%4$s" title="%4$s"></a>',
 					$theme->get( 'Name' ),
 					$theme->get( 'ThemeURI' ),
-					$icons_url . 'external-link-alt-solid.svg',
+					$images_url . 'external-link-alt-solid.svg',
 					sprintf(
 						// translators: %s is the name of the theme.
 						__( 'Open %s theme', 'smntcs-theme-list-view' ),
@@ -152,7 +152,7 @@ class SMNTCS_Themes_List_Table extends WP_List_Table {
 					'%1$s <a href="%2$s"><img src="%3$s" alt="%4$s" title="%4$s"></a>',
 					$theme->get( 'Author' ),
 					$theme->get( 'AuthorURI' ),
-					$icons_url . 'external-link-alt-solid.svg',
+					$images_url . 'external-link-alt-solid.svg',
 					sprintf(
 						// translators: %s is the website of the author.
 						__( 'Open website of %s', 'smntcs-theme-list-view' ),
