@@ -142,14 +142,22 @@ class SMNTCS_Themes_List_Table extends WP_List_Table {
 					$theme->get( 'Name' ),
 					$theme->get( 'ThemeURI' ),
 					$icons_url . 'external-link-alt-solid.svg',
-					sprintf( _( 'Open %s theme' ), $theme->get( 'Name' ) )
+					sprintf(
+						// translators: %s is the name of the theme.
+						__( 'Open %s theme', 'smntcs-theme-list-view' ),
+						$theme->get( 'Name' )
+					)
 				),
 				'author'      => sprintf(
 					'%1$s <a href="%2$s"><img src="%3$s" alt="%4$s" title="%4$s"></a>',
 					$theme->get( 'Author' ),
 					$theme->get( 'AuthorURI' ),
 					$icons_url . 'external-link-alt-solid.svg',
-					sprintf( _( 'Open website of %s' ), $theme->get( 'Author' ) )
+					sprintf(
+						// translators: %s is the website of the author.
+						__( 'Open website of %s', 'smntcs-theme-list-view' ),
+						$theme->get( 'Author' )
+					)
 				),
 				'version'     => $theme->get( 'Version' ) ? $theme->get( 'Version' ) : __( 'n/a', 'smntcs-theme-list-view' ),
 				'requiresWP'  => $theme->get( 'RequiresWP' ) ? $theme->get( 'RequiresWP' ) : __( 'n/a', 'smntcs-theme-list-view' ),
