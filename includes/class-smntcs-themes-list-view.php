@@ -10,13 +10,16 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
+if ( file_exists( plugin_dir_path( __FILE__ ) . '/includes/class-smntcs-themes-list-screen-options.php' ) ) {
+	require_once plugin_dir_path( __FILE__ ) . '/includes/class-smntcs-themes-list-screen-options.php';
+}
+
 /**
  * Theme List View class.
  *
  * @since 1.0.0
  */
 class SMNTCS_Themes_List_View {
-
 	/**
 	 * Initialize the class
 	 *
@@ -27,10 +30,8 @@ class SMNTCS_Themes_List_View {
 		add_action( 'plugins_loaded', array( $this, 'load_required_files' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts_and_styles' ) );
 		add_action( 'wp_ajax_wp_ajax_switch_theme', array( $this, 'handle_theme_switch_ajax_request' ) );
-		add_action( 'admin_init', array( $this, 'register_custom_settings' ) );
-		add_action( 'admin_menu', array( $this, 'add_custom_settings_page' ) );
 		add_action( 'admin_head', array( $this, 'add_theme_list_table_styles' ) );
-		add_filter( 'set-screen-option', array( $this, 'set_custom_screen_option' ), 5, 3 );
+		add_action( 'admin_menu', array( $this, 'add_custom_settings_page' ) );
 	}
 
 	/**
@@ -57,27 +58,6 @@ class SMNTCS_Themes_List_View {
 		if ( file_exists( plugin_dir_path( __FILE__ ) . 'class-smntcs-themes-list-table.php' ) ) {
 			require_once 'class-smntcs-themes-list-table.php';
 		}
-	}
-
-	/**
-	 * Register custom settings.
-	 *
-	 * @return void
-	 */
-	public function register_custom_settings() {
-		register_setting( 'options', 'themes_per_page' );
-	}
-
-	/**
-	 * Set screen option.
-	 *
-	 * @param string $status The value to save instead of the option value. Default false (to skip saving the current option).
-	 * @param string $option The option name.
-	 * @param string $value  The option value.
-	 * @return string The option value or the option status.
-	 */
-	public function set_custom_screen_option( $status, $option, $value ) {
-		return ( 'themes_per_page' === $option ) ? $value : $status;
 	}
 
 	/**
@@ -127,22 +107,8 @@ class SMNTCS_Themes_List_View {
 			1
 		);
 
-		add_action( 'load-' . $hook, array( $this, 'smntcs_theme_list_view_screen_options' ) );
-	}
-
-	/**
-	 * Add screen options.
-	 *
-	 * @return void
-	 */
-	public function smntcs_theme_list_view_screen_options() {
-		add_screen_option( 'per_page',
-			array(
-				'label'   => __( 'Number of items per page:' ), // phpcs:ignore WordPress.WP.I18n.MissingArgDomain
-				'default' => get_option( 'themes_per_page', 23 ),
-				'option'  => 'themes_per_page',
-			)
-		);
+		$screen_options = new SMNTCS_Themes_List_Screen_Options();
+		add_action( 'load-' . $hook, array( $screen_options, 'smntcs_theme_list_view_screen_options' ) );
 	}
 
 	/**
@@ -204,3 +170,5 @@ class SMNTCS_Themes_List_View {
 		printf( '<style>%s</style>', esc_html( $css_styles ) );
 	}
 }
+
+( new SMNTCS_Themes_List_View() );
