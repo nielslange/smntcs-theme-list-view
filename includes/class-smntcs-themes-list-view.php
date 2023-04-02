@@ -30,7 +30,6 @@ class SMNTCS_Themes_List_View {
 		add_action( 'plugins_loaded', array( $this, 'load_required_files' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts_and_styles' ) );
 		add_action( 'wp_ajax_wp_ajax_switch_theme', array( $this, 'handle_theme_switch_ajax_request' ) );
-		add_action( 'admin_head', array( $this, 'add_theme_list_table_styles' ) );
 		add_action( 'admin_menu', array( $this, 'add_custom_settings_page' ) );
 	}
 
@@ -42,12 +41,15 @@ class SMNTCS_Themes_List_View {
 	 */
 	public function add_plugin_settings_link( $url ) {
 		$admin_url     = admin_url( 'themes.php?page=smntcs-theme-list-view' );
-		$settings_link = '<a href="' . esc_url( $admin_url ) . '">' . __( 'List view ', 'smntcs-theme-list-view' ) . '</a>';
+		$settings_link = sprintf(
+			'<a href="%s">%s</a>',
+			esc_url( $admin_url ),
+			__( 'List view ', 'smntcs-theme-list-view' )
+		);
 		array_unshift( $url, $settings_link );
 
 		return $url;
 	}
-
 
 	/**
 	 * Load required files.
@@ -71,8 +73,30 @@ class SMNTCS_Themes_List_View {
 			return;
 		}
 
-		wp_enqueue_script( 'smntcs-theme-list-view-js', plugin_dir_url( SMNTCS_THEME_LIST_VIEW_FILE ) . 'assets/js/theme-activation.js', array( 'jquery' ), '1.0.0', true );
-		wp_localize_script( 'smntcs-theme-list-view-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+		wp_enqueue_style(
+			'smntcs-theme-list-view-css',
+			plugin_dir_url( SMNTCS_THEME_LIST_VIEW_FILE ) . 'assets/css/style.css',
+			array(),
+			'1.0.0'
+		);
+
+		wp_style_add_data( 'smntcs-theme-list-view-css', 'rtl', 'replace' );
+
+		wp_enqueue_script(
+			'smntcs-theme-list-view-js',
+			plugin_dir_url( SMNTCS_THEME_LIST_VIEW_FILE ) . 'assets/js/theme-activation.js',
+			array( 'jquery' ),
+			'1.0.0',
+			true
+		);
+
+		wp_localize_script(
+			'smntcs-theme-list-view-js',
+			'ajax_object',
+			array(
+				'ajax_url' => admin_url( 'admin-ajax.php' ),
+			)
+		);
 	}
 
 	/**
@@ -139,35 +163,6 @@ class SMNTCS_Themes_List_View {
 			</div>',
 			$table_output // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		);
-	}
-
-	/**
-	 * Add custom styles for the theme list table
-	 *
-	 * @return void
-	 */
-	public function add_theme_list_table_styles() {
-		$css_styles = '
-			/* Set the width of the Activate column to 10% */
-			.wp-list-table .column-activate {
-				width: 10%;
-			}
-
-			/* Prevent the Author column from having a width of 10% */
-			.wp-list-table .column-author {
-				width: auto;
-			}
-
-			.column-name img,
-			.column-author img {
-				height: 12px;
-				width: 12px;
-				float: none;
-				padding-left: 3px;
-			}
-			';
-
-		printf( '<style>%s</style>', esc_html( $css_styles ) );
 	}
 }
 
