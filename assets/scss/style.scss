@@ -1,0 +1,38 @@
+// Define variables
+$image-size: 12px;
+
+// Define mixin
+@mixin image-styles {
+	height: $image-size;
+	width: $image-size;
+	float: none;
+	padding-left: 3px;
+}
+
+.appearance_page_smntcs-theme-list-view {
+	.wp-list-table {
+		.column-name {
+			img {
+				@include image-styles;
+			}
+		}
+
+		.column-activate {
+			width: 10%;
+		}
+
+		.column-author {
+			width: auto;
+
+			img {
+				@include image-styles;
+			}
+		}
+
+		.column-version,
+		.column-requiresWP,
+		.column-requiresPHP {
+			width: 14%;
+		}
+	}
+}
