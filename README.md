@@ -23,9 +23,10 @@ Adds a list view for installed themes in the WordPress admin area.
 
 ![smntcs-theme-list-view](https://user-images.githubusercontent.com/3323310/233830116-df970f38-bd49-491d-a0bb-7e996bd0c744.png)
 
+<!--
 ## Plugin page
-
 You can find the plugin on https://wordpress.org/plugins/smntcs-theme-list-view/.
+-->
 
 ## Changelog
 
