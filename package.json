@@ -18,13 +18,12 @@
 	"devDependencies": {
 		"@wordpress/env": "5.15.0",
 		"@wordpress/prettier-config": "2.13.0",
+		"@wordpress/stylelint-config": "21.14.0",
 		"eslint": "^8.37.0",
 		"node-sass": "8.0.0",
 		"prettier": "npm:wp-prettier@^2.8.5",
 		"rtlcss": "4.0.0",
-		"stylelint": "15.4.0",
-		"stylelint-config-standard": "32.0.0",
-		"stylelint-config-wordpress": "17.0.0"
+		"stylelint": "14.16.1"
 	},
 	"scripts": {
 		"build": "node-sass --output-style compressed -o assets/css assets/scss && npm run build-rtl",
@@ -35,14 +34,5 @@
 		"stylelint": "stylelint 'assets/css/**/*.css'",
 		"watch": "node-sass --output-style compressed -o assets/css assets/scss --watch",
 		"wp-env": "wp-env"
-	},
-	"pnpm": {
-		"overrides": {
-			"simple-git@<3.3.0": ">=3.3.0",
-			"got@<11.8.5": ">=11.8.5",
-			"simple-git@<3.5.0": ">=3.5.0",
-			"simple-git@<3.15.0": ">=3.15.0",
-			"simple-git@<3.16.0": ">=3.16.0"
-		}
 	}
 }

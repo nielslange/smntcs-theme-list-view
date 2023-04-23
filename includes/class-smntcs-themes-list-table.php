@@ -39,18 +39,28 @@ class SMNTCS_Themes_List_Table extends WP_List_Table {
 	}
 
 	/**
+	 * Display the nonce field.
+	 *
+	 * @return void
+	 */
+	public function display_nonce_field() {
+		wp_nonce_field( 'smntcs_theme_list_view_action', 'smntcs_theme_list_view_nonce' );
+	}
+
+
+	/**
 	 * Prepare the items for the table to process
 	 *
 	 * @return array The columns to be displayed.
 	 */
 	public function get_columns() {
 		return array(
+			'activate'    => '',
 			'name'        => 'Name',
 			'author'      => 'Author',
 			'version'     => 'Version',
 			'requiresWP'  => 'Requires WP',
 			'requiresPHP' => 'Requires PHP',
-			'activate'    => '',
 		);
 	}
 
@@ -190,9 +200,16 @@ class SMNTCS_Themes_List_Table extends WP_List_Table {
 	 * @return int Returns a positive value if the order is 'asc', a negative value if the order is 'desc'.
 	 */
 	public function usort_reorder( $element1, $element2 ) {
-		$orderby = ( ! empty( $_REQUEST['orderby'] ) ) ? $_REQUEST['orderby'] : 'name'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-		$order   = ( ! empty( $_REQUEST['order'] ) ) ? $_REQUEST['order'] : 'asc';      // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-		$result  = strcasecmp( $element1[ $orderby ], $element2[ $orderby ] );          // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		if (
+			! isset( $_REQUEST['smntcs_theme_list_view_nonce'] ) ||
+			! wp_verify_nonce( $_REQUEST['smntcs_theme_list_view_nonce'], 'smntcs_theme_list_view_action' )
+		) {
+			return 0;
+		}
+
+		$orderby = ( ! empty( $_REQUEST['orderby'] ) ) ? sanitize_text_field( $_REQUEST['orderby'] ) : 'name';
+		$order   = ( ! empty( $_REQUEST['order'] ) ) ? sanitize_text_field( $_REQUEST['order'] ) : 'asc';
+		$result  = strcasecmp( $element1[ $orderby ], $element2[ $orderby ] );
 
 		return ( 'asc' === $order ) ? $result : -$result;
 	}

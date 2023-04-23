@@ -55,9 +55,9 @@ class SMNTCS_Themes_List_Screen_Options {
 	public function smntcs_theme_list_view_screen_options() {
 		add_screen_option( 'per_page',
 			array(
-				'label' => __( 'Number of items per page:' ), // phpcs:ignore WordPress.WP.I18n.MissingArgDomain
-			'default'   => get_option( 'themes_per_page', 23 ),
-			'option'    => 'themes_per_page',
+				'label'   => __( 'Number of items per page:' ), // phpcs:ignore WordPress.WP.I18n.MissingArgDomain
+				'default' => get_option( 'themes_per_page', 23 ),
+				'option'  => 'themes_per_page',
 			)
 		);
 	}

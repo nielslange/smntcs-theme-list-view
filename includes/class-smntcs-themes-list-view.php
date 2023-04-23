@@ -105,13 +105,13 @@ class SMNTCS_Themes_List_View {
 	 * @return void
 	 */
 	public function handle_theme_switch_ajax_request() {
-		check_ajax_referer( 'switch-theme_' . $_POST['stylesheet'], '_wpnonce', true );
+		check_ajax_referer( 'switch-theme_' . sanitize_text_field( $_POST['stylesheet'] ), '_wpnonce', true );
 
 		if ( ! current_user_can( 'switch_themes' ) ) {
 			wp_send_json_error( array( 'message' => 'You do not have sufficient permissions to switch themes.' ) );
 		}
 
-		switch_theme( $_POST['stylesheet'] );
+		switch_theme( sanitize_text_field( $_POST['stylesheet'] ) );
 		wp_send_json_success( array( 'message' => 'Theme activated successfully.' ) );
 	}
 
@@ -154,14 +154,69 @@ class SMNTCS_Themes_List_View {
 
 		ob_start();
 		$themes_list_table->display();
+		$themes_list_table->display_nonce_field();
 		$table_output = ob_get_clean();
+
+		$allowed_html = array(
+			'div'    => array(
+				'class' => array(),
+			),
+			'span'   => array(
+				'class'       => array(),
+				'aria-hidden' => array(),
+			),
+			'label'  => array(
+				'for'   => array(),
+				'class' => array(),
+			),
+			'input'  => array(
+				'class'            => array(),
+				'id'               => array(),
+				'type'             => array(),
+				'name'             => array(),
+				'value'            => array(),
+				'size'             => array(),
+				'aria-describedby' => array(),
+			),
+			'a'      => array(
+				'class' => array(),
+				'href'  => array(),
+			),
+			'br'     => array(),
+			'table'  => array(
+				'class' => array(),
+			),
+			'thead'  => array(),
+			'tr'     => array(),
+			'th'     => array(
+				'scope' => array(),
+				'id'    => array(),
+				'class' => array(),
+			),
+			'tbody'  => array(),
+			'td'     => array(
+				'class'        => array(),
+				'data-colname' => array(),
+			),
+			'button' => array(
+				'data-url' => array(),
+				'class'    => array(),
+				'type'     => array(),
+			),
+			'img'    => array(
+				'src'   => array(),
+				'alt'   => array(),
+				'title' => array(),
+			),
+			'tfoot'  => array(),
+		);
 
 		printf(
 			'<div class="wrap">
-				<h1>Themes</h1>
-				<form id="themes-filter" method="post">%s</form>
-			</div>',
-			$table_output // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			<h1>Themes</h1>
+			<form id="themes-filter" method="post">%s</form>
+		</div>',
+			wp_kses( $table_output, $allowed_html )
 		);
 	}
 }

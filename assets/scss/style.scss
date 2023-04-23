@@ -19,6 +19,11 @@ $image-size: 12px;
 
 		.column-activate {
 			width: 10%;
+
+			.button,
+			.button-secondary {
+				width: 100%;
+			}
 		}
 
 		.column-author {
