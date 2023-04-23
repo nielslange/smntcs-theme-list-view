@@ -1,5 +1,6 @@
 # SMNTCS Theme List View
 
+<!--
 ![Support Level](https://img.shields.io/badge/support-active-green.svg)
 ![Build Status](https://github.com/nielslange/smntcs-theme-list-view/actions/workflows/test.yml/badge.svg)
 ![GPLv2 License](https://img.shields.io/github/license/nielslange/smntcs-theme-list-view.svg)
@@ -8,6 +9,7 @@
 ![Downloads](https://img.shields.io/wordpress/plugin/dt/smntcs-theme-list-view.svg)
 ![Plugin Version](https://img.shields.io/wordpress/plugin/v/smntcs-theme-list-view.svg)
 ![Tag Version](https://img.shields.io/github/tag/nielslange/smntcs-theme-list-view.svg)
+-->
 
 Adds a list view for installed themes in the WordPress admin area.
 
@@ -19,7 +21,7 @@ Adds a list view for installed themes in the WordPress admin area.
 
 ## Screenshot
 
-![Screen Shot 2023-03-31 at 14 30 19](https://user-images.githubusercontent.com/3323310/229054612-08097bee-11dd-4d2b-ab48-d9bbeec75005.png)
+![smntcs-theme-list-view](https://user-images.githubusercontent.com/3323310/233830116-df970f38-bd49-491d-a0bb-7e996bd0c744.png)
 
 ## Plugin page
 
