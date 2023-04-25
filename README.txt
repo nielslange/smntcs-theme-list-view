@@ -11,11 +11,19 @@ License URI: 		https://www.gnu.org/licenses/gpl-2.0.html
 
 Adds a list view for installed themes in the WordPress admin area.
 
+== Description ==
+
+Adds a list view for installed themes in the WordPress admin area.
+
 == Installation ==
 
 1. Upload `smntcs-themes-list-view` to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the `Plugins` menu in WordPress.
 3. Go to `Appearance → List view` to access the themes list view.
+
+== Screenshots ==
+
+1. List all installed themes in a list view.
 
 == Contribute ==
 
