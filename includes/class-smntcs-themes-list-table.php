@@ -103,7 +103,7 @@ class SMNTCS_Themes_List_Table extends WP_List_Table {
 	 * Prepare the items for the table to process
 	 *
 	 * @param string $item The current item.
-	 * @return mixed A regular button, for inactive themes, or a disabled button, for teh active theme.
+	 * @return mixed A regular button, for inactive themes, or a disabled button, for the active theme.
 	 */
 	public function column_activate( $item ) {
 		$current_theme = wp_get_theme();
