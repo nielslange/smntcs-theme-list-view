@@ -6,7 +6,7 @@
  * Author:              Niels Lange
  * Author URI:          https://nielslange.de/
  * Text Domain:         smntcs-theme-list-view
- * Version:             1.0.0
+ * Version:             1.1
  * License:             GPL v2 or later
  * License URI:         https://www.gnu.org/licenses/gpl-2.0.html
  * Requires at least:   5.0

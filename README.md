@@ -27,6 +27,10 @@ You can find the plugin on https://wordpress.org/plugins/smntcs-theme-list-view/
 
 ## Changelog
 
+### 1.1 (2023.04.26)
+
+Update wp_kses definitions to highlight active theme
+
 ### 1.0 (2023.03.30)
 
 -   Initial release
