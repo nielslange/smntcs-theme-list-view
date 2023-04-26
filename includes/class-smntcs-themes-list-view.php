@@ -202,6 +202,7 @@ class SMNTCS_Themes_List_View {
 				'data-url' => array(),
 				'class'    => array(),
 				'type'     => array(),
+				'disabled' => array(),
 			),
 			'img'    => array(
 				'src'   => array(),
