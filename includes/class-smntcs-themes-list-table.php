@@ -200,13 +200,6 @@ class SMNTCS_Themes_List_Table extends WP_List_Table {
 	 * @return int Returns a positive value if the order is 'asc', a negative value if the order is 'desc'.
 	 */
 	public function usort_reorder( $element1, $element2 ) {
-		if (
-			! isset( $_REQUEST['smntcs_theme_list_view_nonce'] ) ||
-			! wp_verify_nonce( $_REQUEST['smntcs_theme_list_view_nonce'], 'smntcs_theme_list_view_action' )
-		) {
-			return 0;
-		}
-
 		$orderby = ( ! empty( $_REQUEST['orderby'] ) ) ? sanitize_text_field( $_REQUEST['orderby'] ) : 'name';
 		$order   = ( ! empty( $_REQUEST['order'] ) ) ? sanitize_text_field( $_REQUEST['order'] ) : 'asc';
 		$result  = strcasecmp( $element1[ $orderby ], $element2[ $orderby ] );

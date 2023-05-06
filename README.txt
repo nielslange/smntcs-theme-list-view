@@ -2,7 +2,7 @@
 
 Contributors: 		nielslange
 Tags: 				Theme, List View, Administration
-Stable tag: 		1.1
+Stable tag: 		1.2
 Tested up to: 		6.2
 Requires PHP: 		7.4
 Requires at least: 	5.2
@@ -30,6 +30,10 @@ Adds a list view for installed themes in the WordPress admin area.
 Contributions are more than welcome. Simply head over to [Github](https://github.com/nielslange/smntcs-theme-list-view) and open an issue or a pull request.
 
 == Changelog ==
+
+= 1.2 (2023.05.06) =
+
+- Fix broken column sorting
 
 = 1.1 (2023.04.26) =
 
