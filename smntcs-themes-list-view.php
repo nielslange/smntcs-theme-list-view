@@ -6,11 +6,11 @@
  * Author:              Niels Lange
  * Author URI:          https://nielslange.de/
  * Text Domain:         smntcs-theme-list-view
- * Version:             1.2
- * License:             GPL v2 or later
- * License URI:         https://www.gnu.org/licenses/gpl-2.0.html
+ * Version:             1.3
  * Requires at least:   5.0
  * Requires PHP:        7.4
+ * License:             GPL v2 or later
+ * License URI:         https://www.gnu.org/licenses/gpl-2.0.html
  *
  * @package SMNTCS_Theme_List_View
  */
