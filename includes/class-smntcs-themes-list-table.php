@@ -200,8 +200,8 @@ class SMNTCS_Themes_List_Table extends WP_List_Table {
 	 * @return int Returns a positive value if the order is 'asc', a negative value if the order is 'desc'.
 	 */
 	public function usort_reorder( $element1, $element2 ) {
-		$orderby = ( ! empty( $_REQUEST['orderby'] ) ) ? sanitize_text_field( $_REQUEST['orderby'] ) : 'name';
-		$order   = ( ! empty( $_REQUEST['order'] ) ) ? sanitize_text_field( $_REQUEST['order'] ) : 'asc';
+		$orderby = ( ! empty( $_REQUEST['orderby'] ) ) ? sanitize_text_field( $_REQUEST['orderby'] ) : 'name'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$order   = ( ! empty( $_REQUEST['order'] ) ) ? sanitize_text_field( $_REQUEST['order'] ) : 'asc'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		$result  = strcasecmp( $element1[ $orderby ], $element2[ $orderby ] );
 
 		return ( 'asc' === $order ) ? $result : -$result;
