@@ -31,7 +31,7 @@ Contributions are more than welcome. Simply head over to [Github](https://github
 
 == Changelog ==
 
-= 1.4 (2024.03.19) =
+= 1.4 (2025.03.20) =
 
 - Test up to WP 6.8
 
