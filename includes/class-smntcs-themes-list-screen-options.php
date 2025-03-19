@@ -56,7 +56,7 @@ class SMNTCS_Themes_List_Screen_Options {
 		add_screen_option( 'per_page',
 			array(
 				'label'   => __( 'Number of items per page:' ), // phpcs:ignore WordPress.WP.I18n.MissingArgDomain
-				'default' => get_option( 'themes_per_page', 23 ),
+				'default' => get_option( 'themes_per_page', 20 ),
 				'option'  => 'themes_per_page',
 			)
 		);
