@@ -23,22 +23,22 @@ Adds a list view for installed themes in the WordPress admin area.
 
 ## Plugin page
 
-You can find the plugin on https://wordpress.org/plugins/smntcs-theme-list-view/.
+You can find the plugin on <https://wordpress.org/plugins/smntcs-theme-list-view/>.
 
 ## Changelog
 
 ### 1.3 (2023.10.21)
 
--   Test up to WP 6.4
+- Test up to WP 6.4
 
 ### 1.2 (2023.05.06)
 
--   Fix broken column sorting
+- Fix broken column sorting
 
 ### 1.1 (2023.04.26)
 
--   Update wp_kses definitions to highlight active theme
+- Update wp_kses definitions to highlight active theme
 
 ### 1.0 (2023.03.30)
 
--   Initial release
+- Initial release

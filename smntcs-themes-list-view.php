@@ -19,15 +19,9 @@
 defined( 'ABSPATH' ) || exit;
 
 // Define plugin constants.
-if ( ! defined( 'SMNTCS_THEME_LIST_VIEW_FILE' ) ) {
-	define( 'SMNTCS_THEME_LIST_VIEW_FILE', __FILE__ );
-}
+define( 'SMNTCS_THEME_LIST_VIEW_FILE', __FILE__ );
 
-// Initialize the plugin.
-if ( file_exists( plugin_dir_path( __FILE__ ) . '/includes/class-smntcs-themes-list-view.php' ) ) {
-	require_once plugin_dir_path( __FILE__ ) . '/includes/class-smntcs-themes-list-view.php';
-}
+// Load plugin classes.
+require_once plugin_dir_path( __FILE__ ) . '/includes/class-smntcs-themes-list-screen-options.php';
+require_once plugin_dir_path( __FILE__ ) . '/includes/class-smntcs-themes-list-view.php';
 
-if ( file_exists( plugin_dir_path( __FILE__ ) . '/includes/class-smntcs-themes-list-screen-options.php' ) ) {
-	require_once plugin_dir_path( __FILE__ ) . '/includes/class-smntcs-themes-list-screen-options.php';
-}

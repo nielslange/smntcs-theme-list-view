@@ -10,6 +10,9 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
+/*
+ * Load the WP_List_Table class if it doesn't already exist.
+ */
 if ( file_exists( plugin_dir_path( __FILE__ ) . '/includes/class-smntcs-themes-list-screen-options.php' ) ) {
 	require_once plugin_dir_path( __FILE__ ) . '/includes/class-smntcs-themes-list-screen-options.php';
 }
@@ -222,4 +225,4 @@ class SMNTCS_Themes_List_View {
 	}
 }
 
-( new SMNTCS_Themes_List_View() );
+new SMNTCS_Themes_List_View();
