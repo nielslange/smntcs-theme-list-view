@@ -16,23 +16,23 @@
 		"url": "https://github.com/nielslange/smntcs-theme-list-view/issues"
 	},
 	"devDependencies": {
-		"@wordpress/env": "5.15.0",
-		"@wordpress/prettier-config": "2.13.0",
-		"@wordpress/stylelint-config": "21.14.0",
-		"eslint": "^8.37.0",
-		"node-sass": "8.0.0",
-		"prettier": "npm:wp-prettier@^2.8.5",
-		"rtlcss": "4.0.0",
-		"stylelint": "14.16.1"
+		"@wordpress/env": "11.16.0",
+		"@wordpress/prettier-config": "4.56.0",
+		"@wordpress/stylelint-config": "26.0.0",
+		"eslint": "^10.11.0",
+		"prettier": "npm:wp-prettier@^3.9.6",
+		"rtlcss": "4.3.0",
+		"sass": "^1.105.0",
+		"stylelint": "17.15.0"
 	},
 	"scripts": {
-		"build": "node-sass --output-style compressed -o assets/css assets/scss && npm run build-rtl",
+		"build": "sass --style=compressed --no-source-map assets/scss:assets/css && npm run build-rtl",
 		"build-rtl": "rtlcss assets/css/style.css assets/css/style-rtl.css",
 		"phpcbf": "composer run phpcbf",
 		"phpcs": "composer run phpcs",
 		"phplint": "composer run phplint",
 		"stylelint": "stylelint 'assets/css/**/*.css'",
-		"watch": "node-sass --output-style compressed -o assets/css assets/scss --watch",
+		"watch": "sass --style=compressed --no-source-map assets/scss:assets/css --watch",
 		"wp-env": "wp-env"
 	}
 }

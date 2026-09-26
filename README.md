@@ -27,6 +27,11 @@ You can find the plugin on <https://wordpress.org/plugins/smntcs-theme-list-view
 
 ## Changelog
 
+### 1.5 (2026.09.26)
+
+- Test up to WordPress 7.1
+- Update development dependencies and GitHub Actions
+
 ### 1.4 (2025.03.20)
 
 -   Test up to WP 6.8
