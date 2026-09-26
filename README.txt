@@ -1,19 +1,19 @@
-=== SMNTCS Themes List View ===
+=== SMNTCS Theme List View ===
 
-Contributors: 		nielslange
-Tags: 				Theme, List View, Administration
-Stable tag: 		1.4
-Tested up to: 		6.8
-Requires at least: 	5.2
-Requires PHP: 		7.4
-License: 			GPL v2 or later
-License URI: 		https://www.gnu.org/licenses/gpl-2.0.html
+Contributors:       nielslange
+Tags:               themes, list view, admin, appearance, theme management
+Requires at least:  5.0
+Tested up to:       7.1
+Requires PHP:       7.4
+Stable tag:         1.5
+License:            GPL v2 or later
+License URI:        https://www.gnu.org/licenses/gpl-2.0.html
 
-Adds a list view for installed themes in the WordPress admin area.
+Adds a compact list view of all installed themes to the Appearance menu.
 
 == Description ==
 
-Adds a list view for installed themes in the WordPress admin area.
+The Themes screen in WordPress shows large screenshots, which makes it slow to scan when many themes are installed. SMNTCS Theme List View adds a compact table of all installed themes to the Appearance menu, with their version, the WordPress and PHP versions they require, and a link to activate them.
 
 == Installation ==
 
@@ -27,9 +27,14 @@ Adds a list view for installed themes in the WordPress admin area.
 
 == Contribute ==
 
-Contributions are more than welcome. Simply head over to [Github](https://github.com/nielslange/smntcs-theme-list-view) and open an issue or a pull request.
+Contributions are more than welcome. Simply head over to [GitHub](https://github.com/nielslange/smntcs-theme-list-view) and open an issue or a pull request.
 
 == Changelog ==
+
+= 1.5 (2026.09.26) =
+
+- Test up to WordPress 7.1
+- Update development dependencies and GitHub Actions
 
 = 1.4 (2025.03.20) =
 

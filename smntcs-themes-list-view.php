@@ -6,7 +6,7 @@
  * Author:              Niels Lange
  * Author URI:          https://nielslange.de/
  * Text Domain:         smntcs-theme-list-view
- * Version:             1.4
+ * Version:             1.5
  * Requires at least:   5.0
  * Requires PHP:        7.4
  * License:             GPL v2 or later
@@ -24,4 +24,3 @@ define( 'SMNTCS_THEME_LIST_VIEW_FILE', __FILE__ );
 // Load plugin classes.
 require_once plugin_dir_path( __FILE__ ) . '/includes/class-smntcs-themes-list-screen-options.php';
 require_once plugin_dir_path( __FILE__ ) . '/includes/class-smntcs-themes-list-view.php';
-
